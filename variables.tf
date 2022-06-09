@@ -23,7 +23,7 @@ locals {
   }
   instance_count = {
     dev = 0
-    stage = 1
+    netologyTC_stage = 1
     prod = 2
   }
 }
