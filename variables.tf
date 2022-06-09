@@ -18,12 +18,12 @@ variable "aws_pub_key" {}
 locals {
   instance_types = {
     dev = "t1.micro"
-    netologyTC_stage = "t2.micro"
+    stage = "t2.micro"
     prod = "t3.micro"
   }
   instance_count = {
     dev = 0
-    netologyTC_stage = 1
+    stage = 1
     prod = 2
   }
 }
@@ -36,7 +36,7 @@ default = {
     node02 = "t2.micro"
     node03 = "t3.micro"
   }
-  netologyTC_stage = {
+    stage = {
     node01 = "t2.micro"
   }
   prod  = {
