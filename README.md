@@ -1,0 +1,2 @@
+# netologyTC
+terraform cloud repo
