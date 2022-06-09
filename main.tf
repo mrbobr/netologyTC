@@ -7,8 +7,8 @@ resource "aws_key_pair" "ssh-key" {
 # Описание инстансов
 resource "aws_instance" "cell01" {
   ami           = data.aws_ami.ubuntu.id #указаны в ami.tf
-  instance_type = local.instance_types.stage #указаны в variables.tf
-  count = local.instance_count.stage #указаны в variables.tf
+  instance_type = local.instance_types[terraform.workspace] #указаны в variables.tf
+  count = local.instance_count[terraform.workspace] #указаны в variables.tf
   associate_public_ip_address = true
   key_name      = "ssh-key"
   subnet_id = "${var.aws_subnet_id}"
@@ -26,7 +26,7 @@ resource "aws_instance" "cell01" {
 }
 
 resource "aws_instance" "cell02" {
-  for_each = var.cell2_instances.stage
+  for_each = var.cell2_instances[terraform.workspace]
   ami = data.aws_ami.ubuntu.id
   instance_type = each.value
   associate_public_ip_address = true
