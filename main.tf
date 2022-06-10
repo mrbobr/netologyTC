@@ -21,7 +21,7 @@ resource "aws_instance" "cell01" {
     volume_type           = "standard" #стандартный HDD
   }
   tags = {
-    Name = "${terraform.workspace}-${var.name}-${format(var.count_format, var.count_offset+count.index+1)}}"
+    Name = "${terraform.workspace}-${var.name}-${format(var.count_format, var.count_offset+count.index+1)}"
   }
 }
 
